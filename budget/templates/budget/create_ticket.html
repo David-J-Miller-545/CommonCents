@@ -1,0 +1,22 @@
+{% extends 'budget/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="card-title">Create Ticket</h4>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <button type="submit" class="btn btn-success" style="display: block;">Create</button>
+                        <a href="{% url 'budget-home' %}" class="card-link badge badge-pill badge-dark mt-3"">View Existing Tickets</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>  
+{% endblock %}

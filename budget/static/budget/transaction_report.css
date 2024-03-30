@@ -1,0 +1,7 @@
+
+.cat-column {
+    display: inline-block; /* the default for span */
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+  }

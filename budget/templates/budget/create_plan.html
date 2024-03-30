@@ -1,0 +1,40 @@
+{% extends 'budget/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="card-title">Create New Category</h4>
+                </div>
+                <div class="card-body">     
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{catform|crispy}}
+                        <button type="submit" name="submit-category" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="card-title">Edit Existing Budget Plans</h4>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{rowform|crispy}}
+                        <button type="submit" name="submit-row" class="btn btn-success">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

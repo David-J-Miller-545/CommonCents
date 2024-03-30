@@ -1,0 +1,36 @@
+{% extends 'budget/base.html' %}
+{% load crispy_forms_tags %}
+
+{% load crispy_forms_tags %}
+
+    {% block head %}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   {% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Register</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{form|crispy}}
+                            <button class="btn btn-primary mt-3" type="submit">Register</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <div class="text-center mt-3">
+                            Already have an account? <a href="">Login now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

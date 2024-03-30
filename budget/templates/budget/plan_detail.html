@@ -1,0 +1,32 @@
+{% extends 'budget/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-3">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-dark text-white text-center pt-1 pb-0">
+                <h4>{{ object.name }}</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {% for planrow in object.planrow_set.all %}
+                        <li class="list-group-item">
+                            <div class="row py-1">
+                                {{ planrow.name }}  
+                            </div>
+                            <div class="row py-1">
+                                {{ planrow.category }}  
+                            </div>
+                            <div class="row py-1">
+                                {{ planrow.value_num }}  
+                            </div>
+                        </li>
+                    {% endfor %}
+                  </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

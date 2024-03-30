@@ -1,0 +1,56 @@
+{% extends 'budget/base.html' %}
+
+{% block content %}
+    <div class="row mt-3">
+        <div class="col-9">
+            {% for plan in  plan_list %}
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <button class="btn btn-primary col" type="button" data-toggle="collapse" data-target="#show_content_{{ plan.id }}" aria-expanded="false" aria-controls="collapseExample">
+                            {{ plan.name }}
+                        </button>
+                    </div>
+                    <div class="collapse col-12 show" id="show_content_{{ plan.id }}">
+                        <div class="card card-body">
+                            <ul class="list-group list-group-flush">
+                                {% for planrow in plan.planrow_set.all %}
+                                    <li class="list-group-item">
+                                        <div class="row py-1">
+                                            <h5>{{ planrow.category.name }}</h5>  
+                                        </div>
+                                        <div class="row py-1">
+                                            Amount saved from each deposit: 
+                                            {% if planrow.value_type == "Dollar Amount" %}
+                                                ${{ planrow.value_num|floatformat:2 }} 
+                                            {% endif %}
+                                            {% if planrow.value_type == "Percentage" %}
+                                                {{ planrow.value_num|floatformat:2 }}%
+                                            {% endif %}
+                                        </div>
+                                        <div class="row py-1">
+                                            Amount balanced so far: ${{ planrow.category.balance|floatformat:2 }}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                              </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-3">
+            {% for ticket in ticket_list %}
+                <div class="card mb-3">
+                    <h5 class="card-header"> {{ ticket.category }}</h5>
+                    <div class="card-body">
+                        <p class="card-text">Purchase Amount: ${{ ticket.spending_limit }} </p>
+                        <p class="card-text"> {{ ticket.description }} </p>
+                        <footer class="blockquote-footer"> {{ ticket.date_created }}</footer>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+
+{% extends 'budget/base.html' %} 
+
+{% block content %} 
+
+    <a href="{% url 'ticket-creation' %}"> Create new ticket! </a>
+    {% for ticket in tickets %} 
+    <!-- created empty divs to make things easier for the CSS specific task -->
+    <div>
+        {{ ticket.category }}
+    </div>
+
+    <div>
+        {{ ticket.spending_limit }}
+    </div>
+
+    <div>
+        {{ ticket.description }}
+    </div>
+
+    <div>
+        {{ ticket.date_created }}
+    </div>
+    <br>
+    {% endfor %}
+{% endblock %}

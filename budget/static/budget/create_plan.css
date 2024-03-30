@@ -1,0 +1,10 @@
+.container {
+    border: 5px solid black;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.name {
+    font-weight: bold;
+    text-align: center;
+}

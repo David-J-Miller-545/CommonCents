@@ -1,0 +1,57 @@
+{% extends 'budget/base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'budget/transaction_report.css' %}">
+{% endblock %}
+    {% block content %}
+        <!-- <div>
+            <h1><strong>Transaction: </strong>{{transaction.date_posted}}</h1>
+            <div>
+                <h2>Plan: {{transaction.plan.name}}</h2>
+                <h3>Amount: ${{transaction.transAmount|floatformat:2}}</h3>
+                <div>
+                    <div class = "cat-column">
+                        <p><strong>Category: </strong></p>
+                        <p>Amount Deposited: </p>
+                        <p>Current Balance: </p>
+                    </div>
+                    {% for catTrans in catTransactions %}
+                        <div class = "cat-column">
+                            <p><strong>{{catTrans.category.name}}</strong></p>
+                            <p>${{catTrans.catAmount|floatformat:2}}</p>
+                            <p>${{catTrans.category.balance|floatformat:2}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div> -->
+
+        <div class="card mt-3">
+            <h2 class="card-header bg-info text-white"><strong>Transaction: </strong>{{transaction.date_posted}}</h1>
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col">
+                        <h4>Plan: {{transaction.plan.name}}</h4>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <h4>Amount: ${{transaction.transAmount|floatformat:2}}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p><strong>Category: </strong></p>
+                        <p>Amount Deposited: </p>
+                        <p>Current Balance: </p>
+                    </div>
+                    {% for catTrans in catTransactions %}
+                        <div class="col border border-dark rounded mr-2">
+                            <p><strong>{{catTrans.category.name}}</strong></p>
+                            <p>${{catTrans.catAmount|floatformat:2}}</p>
+                            <p>${{catTrans.category.balance|floatformat:2}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    {% endblock content %}
