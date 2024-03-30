@@ -1,0 +1,58 @@
+
+*::before
+*::after {
+    box-sizing: border-box;
+}
+
+
+
+body { 
+    background: #0962B5;
+    color: rgb(255, 255, 255);
+    font-size: 1.125rem;
+    list-style: 0.7;
+    margin: 0;
+
+}
+
+header{
+    background-color: #100E0E;
+    text-align: center;
+}
+
+.nav_list{
+    display: flex;
+    margin: 0 ;
+    margin-top: 1em;
+    padding: 0;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    list-style: none;
+    justify-content: space-between;
+    font-weight: 800;
+}
+
+.nav_link{
+    color: inherit;
+    text-decoration: none;
+
+
+}
+
+.nav_list--item:hover{
+    background-color: bisque;
+
+}
+
+.main_intro{
+    width: 60%;
+    margin: 12px;
+}
+
+.logout_text:hover{
+    background-color: red;
+}
+
+.logout_text{
+    x
+}
